@@ -7,9 +7,9 @@ Gem::Specification.new do |s|
   s.version     = Woopy::VERSION
   s.authors     = ["Big Bang Technology"]
   s.email       = ["developers@bigbangtechnology.com"]
-  s.homepage    = ""
-  s.summary     = %q{TODO: Write a gem summary}
-  s.description = %q{TODO: Write a gem description}
+  s.homepage    = "http://woople.com/"
+  s.summary     = %q{Woople API Wrapper}
+  s.description = %q{Wraps the Woople API as ActiveResources}
 
   s.rubyforge_project = "woopy"
 
