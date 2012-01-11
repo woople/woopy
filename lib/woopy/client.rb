@@ -5,8 +5,8 @@ module Woopy
       Resource.headers['X-WoopleToken'] = @token
     end
     
-    def verified?
-      Resource.connection.get(Resource.prefix + 'verify', Resource.headers)
+    def verify
+      Resource.connection.get(Resource.prefix + 'verify', Resource.headers).code == 200
     end
   end
 end

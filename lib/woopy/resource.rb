@@ -16,14 +16,6 @@ module Woopy
           @headers ||= {}
         end
       end
-
-      def build_subclass
-        returning Class.new(self) do |c|
-          c.element_name    = self.element_name
-          c.collection_name = self.collection_name
-          c.primary_key     = self.primary_key
-        end
-      end
     end
   end
 end
