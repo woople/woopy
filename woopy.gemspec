@@ -5,8 +5,8 @@ require "woopy/version"
 Gem::Specification.new do |s|
   s.name        = "woopy"
   s.version     = Woopy::VERSION
-  s.authors     = ["Joannou Ng"]
-  s.email       = ["usually@tomatocheese.com"]
+  s.authors     = ["Big Bang Technology"]
+  s.email       = ["developers@bigbangtechnology.com"]
   s.homepage    = ""
   s.summary     = %q{TODO: Write a gem summary}
   s.description = %q{TODO: Write a gem description}
@@ -19,6 +19,6 @@ Gem::Specification.new do |s|
   s.require_paths = ["lib"]
 
   # specify any dependencies here; for example:
-  # s.add_development_dependency "rspec"
+  s.add_development_dependency "rspec", "~> 2.8"
   # s.add_runtime_dependency "rest-client"
 end
