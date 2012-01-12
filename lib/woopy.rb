@@ -7,6 +7,7 @@ require 'woopy/version'
 require 'woopy/client'
 require 'woopy/resource'
 require 'woopy/user'
+require 'woopy/account'
 
 def Woopy(options = {})
   Woopy::Client.new(options)

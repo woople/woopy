@@ -11,10 +11,9 @@ describe Woopy::Client do
   end
 
   describe '#verify' do
-    before { @headers = {"Accept" => "application/json", "X-WoopleToken" => @token } }
     
     context 'given valid token' do
-      before { mock_verify(@headers, 200) }
+      before { mock_verify(200) }
       
       subject { Woopy(token: @token).verify }
       
@@ -22,7 +21,7 @@ describe Woopy::Client do
     end
     
     context 'given invalid token' do
-      before { mock_verify(@headers, 401) }
+      before { mock_verify(401) }
       
       subject { Woopy(token: @token).verify }
       
@@ -30,9 +29,9 @@ describe Woopy::Client do
     end
   end
   
-  def mock_verify(headers, status_code)
+  def mock_verify(status_code)
     ActiveResource::HttpMock.respond_to do |mock|
-      mock.get '/services/v1/verify', headers, '', status_code
+      mock.get '/services/v1/verify', {"Accept" => "application/json", "X-WoopleToken" => @token }, '', status_code
     end
   end
 end
