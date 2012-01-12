@@ -1,11 +1,10 @@
 require 'spec_helper'
-require 'woopy'
 
 describe Woopy::Client do
   before { @token = 'foo' }
 
   describe '#new' do
-    it "should set the header token" do
+    it "sets the header token" do
       Woopy(token: @token)
       Woopy::Resource.headers['X-WoopleToken'].should eq(@token)
     end
