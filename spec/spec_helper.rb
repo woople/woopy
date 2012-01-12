@@ -16,3 +16,34 @@ def request_headers(token)
   {"Content-Type" => "application/json", "X-WoopleToken" => token }
 end
 
+def account_response
+  { account: account_attributes.merge(id: 1) }.to_json
+end
+
+def account_attributes
+  { name: "Account", subdomain: "subdomain1" }
+end
+
+def user_response
+  { user: user_attributes.merge(id: 1) }.to_json
+end
+
+def user_attributes
+  { name: "User Name", email: "user@example.com" }
+end
+
+def employment_response
+  { employment: employment_attributes.merge(id: 1) }.to_json
+end
+
+def employment_attributes
+  { account_id: 1, user_id: 1 }
+end
+
+def ownership_response
+  { ownership: ownership_attributes.merge(id: 1) }.to_json
+end
+
+def ownership_attributes
+  { account_id: 1, user_id: 1 }
+end
