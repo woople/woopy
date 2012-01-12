@@ -54,4 +54,28 @@ describe Woopy::Account do
 
   end
 
+  describe "#make_owner" do
+
+    before do
+      user_name = "Test User"
+      email = "mail@empl.com"
+      account_response = {account: { id: @account_id, name: @name, subdomain: @subdomain }}.to_json
+      user_response = {user: { id: 1, name: user_name, email: email }}.to_json
+      ownership_response = {ownership: { id: 1, user_id: 1, account_id: @account_id}}.to_json
+      ActiveResource::HttpMock.respond_to do |mock|
+        mock.post( '/services/v1/accounts.json', request_headers(@token), account_response )
+        mock.post( '/services/v1/users.json', request_headers(@token), user_response )
+        mock.post( '/services/v1/ownerships.json', request_headers(@token), ownership_response )
+      end
+      @account = Woopy::Account.create(name: @name, subdomain: @subdomain) 
+      @user = Woopy::User.create(name: user_name, email: email)
+    end
+
+    subject { @account.make_owner(@user) }
+
+    it { should be_kind_of Woopy::Ownership }
+    it { should be_persisted }
+
+  end
+
 end

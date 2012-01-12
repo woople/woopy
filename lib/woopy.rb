@@ -9,6 +9,7 @@ require 'woopy/resource'
 require 'woopy/user'
 require 'woopy/account'
 require 'woopy/employment'
+require 'woopy/ownership'
 
 def Woopy(options = {})
   Woopy::Client.new(options)
