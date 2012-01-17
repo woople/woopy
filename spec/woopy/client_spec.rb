@@ -29,7 +29,7 @@ describe Woopy::Client do
   describe '#verify' do
 
     context 'given valid token' do
-      before { mock_verify(200) }
+      before { mock_verify('200') }
 
       subject { Woopy(token: @token).verify }
 
@@ -37,7 +37,7 @@ describe Woopy::Client do
     end
 
     context 'given invalid token' do
-      before { mock_verify(401) }
+      before { mock_verify('401') }
 
       subject { Woopy(token: @token).verify }
 
