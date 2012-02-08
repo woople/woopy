@@ -5,7 +5,7 @@ describe Woopy::Client do
 
   describe '#new' do
     before {Woopy(token: @token)}
-    
+
     it "sets the header token" do
       Woopy::Resource.headers['X-WoopleToken'].should eq(@token)
     end

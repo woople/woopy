@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe Woopy::Account do
 
-  before do 
+  before do
     @token = 'foo'
     Woopy(token: @token)
     ActiveResource::HttpMock.respond_to do |mock|
@@ -15,9 +15,9 @@ describe Woopy::Account do
 
   describe "#save" do
 
-    context "valid name and subdomain" do
+    context "valid name, subdomain, and packages" do
       before do
-        @account = Woopy::Account.new(account_attributes) 
+        @account = Woopy::Account.new(account_attributes)
       end
       it 'saves correctly' do
         @account.save.should be_true
@@ -29,10 +29,10 @@ describe Woopy::Account do
   context "with an existing user" do
 
     before do
-      @account = Woopy::Account.create(account_attributes) 
+      @account = Woopy::Account.create(account_attributes)
       @user = Woopy::User.create(user_attributes)
     end
-    
+
     describe "#employ" do
       subject { @account.employ(@user) }
 
