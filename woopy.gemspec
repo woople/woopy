@@ -19,6 +19,7 @@ Gem::Specification.new do |s|
   s.require_paths = ["lib"]
 
   # specify any dependencies here; for example:
+  s.add_development_dependency "rake"
   s.add_development_dependency "rspec", "~> 2.8"
   s.add_development_dependency "json"
   s.add_development_dependency "gem-release"
