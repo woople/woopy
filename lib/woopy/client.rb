@@ -1,5 +1,5 @@
 module Woopy
-  
+
   DEFAULT_SITE_BASE = "https://api.woople.com/services/v1/"
 
   class Client

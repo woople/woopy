@@ -21,7 +21,7 @@ def account_response
 end
 
 def account_attributes
-  { name: "Account", subdomain: "subdomain1" }
+  { name: "Account", subdomain: "subdomain1", packages: ["package1", "package2"] }
 end
 
 def user_response
