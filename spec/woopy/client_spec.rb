@@ -47,7 +47,7 @@ describe Woopy::Client do
 
   def mock_verify(status_code)
     ActiveResource::HttpMock.respond_to do |mock|
-      mock.get '/services/v1/verify', {"Accept" => "application/json", "X-WoopleToken" => @token }, '', status_code
+      mock.get '/services/v1/verify', {"Accept" => "application/json", "X-WoopleToken" => @token }, '', status_code.to_i
     end
   end
 end

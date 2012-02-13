@@ -10,7 +10,7 @@ module Woopy
     end
 
     def verify
-      Resource.connection.get(Resource.prefix + 'verify', Resource.headers).code == 200
+      Resource.connection.get(Resource.prefix + 'verify', Resource.headers).success?
     end
 
   end
