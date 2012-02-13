@@ -13,7 +13,11 @@ RSpec.configure do |config|
 end
 
 def request_headers(token)
-  {"Content-Type" => "application/json", "X-WoopleToken" => token }
+  {"Content-Type" => "application/json", "X-WoopleToken" => token}
+end
+
+def delete_request_headers(token)
+  {"Accept" => "application/json", "X-WoopleToken" => token}
 end
 
 def account_response
