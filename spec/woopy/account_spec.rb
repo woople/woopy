@@ -8,7 +8,7 @@ describe Woopy::Account do
     ActiveResource::HttpMock.respond_to do |mock|
       mock.post( '/services/v1/accounts.json', request_headers(@token), account_response )
       mock.post( '/services/v1/users.json', request_headers(@token), user_response )
-      mock.post( '/services/v1/employments.json', request_headers(@token), employment_response )
+      mock.post( '/services/v1/accounts/1/employments.json', request_headers(@token), employment_response )
       mock.post( '/services/v1/ownerships.json', request_headers(@token), ownership_response )
     end
   end
