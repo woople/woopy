@@ -58,15 +58,9 @@ require 'spec_helper'
     end
 
     describe "#employments" do
+      subject { @account.employments }
 
-      before do
-        @employments = @account.employments
-      end
-
-      it "returns a list of user's employments" do
-        @employments.count.should == 2
-      end
-
+      its(:count) { should == 2 }
     end
   end
 end
