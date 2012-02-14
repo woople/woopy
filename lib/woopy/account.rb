@@ -13,7 +13,11 @@ module Woopy
     end
 
     def employments
-      employment = Employment.find(:all, params: { account_id: self.id })
+      Employment.find(:all, params: { account_id: self.id })
+    end
+
+    def find_employment(user)
+      Employment.find(:first, params: { account_id: self.id, user_id: user.id})
     end
   end
 end

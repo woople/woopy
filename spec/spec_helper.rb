@@ -28,6 +28,14 @@ def account_attributes
   { name: "Account", subdomain: "subdomain1", packages: ["package1", "package2"] }
 end
 
+def user_account_employment_response
+  {
+    employments: [
+      { employment: employment_attributes.merge(id: 1) }
+    ]
+  }.to_json
+end
+
 def account_employments_response
   {
     employments: [
