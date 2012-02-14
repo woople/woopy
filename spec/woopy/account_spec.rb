@@ -10,8 +10,9 @@ require 'spec_helper'
       mock.post( '/services/v1/users.json', request_headers(@token), user_response )
       mock.post( '/services/v1/ownerships.json', request_headers(@token), ownership_response )
 
+      mock.get(    '/services/v1/accounts/1/employments.json', accept_request_headers(@token), account_employments_response )
       mock.post(   '/services/v1/accounts/1/employments.json', request_headers(@token), employment_response )
-      mock.delete( '/services/v1/accounts/1/employments/1.json', delete_request_headers(@token), employment_response )
+      mock.delete( '/services/v1/accounts/1/employments/1.json', accept_request_headers(@token), employment_response )
     end
   end
 
@@ -54,6 +55,18 @@ require 'spec_helper'
 
       it { should be_kind_of Woopy::Ownership }
       it { should be_persisted }
+    end
+
+    describe "#employments" do
+
+      before do
+        @employments = @account.employments
+      end
+
+      it "returns a list of user's employments" do
+        @employments.count.should == 2
+      end
+
     end
   end
 end

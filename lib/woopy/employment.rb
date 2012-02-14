@@ -1,8 +1,8 @@
 module Woopy
   class Employment < Resource
-    def initialize(options)
+    def initialize(attributes = {}, persisted = false)
       self.class.site = Resource.site + "accounts/:account_id/"
-      super(options)
+      super(attributes, persisted)
     end
   end
 end

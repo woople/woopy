@@ -16,7 +16,7 @@ def request_headers(token)
   {"Content-Type" => "application/json", "X-WoopleToken" => token}
 end
 
-def delete_request_headers(token)
+def accept_request_headers(token)
   {"Accept" => "application/json", "X-WoopleToken" => token}
 end
 
@@ -26,6 +26,15 @@ end
 
 def account_attributes
   { name: "Account", subdomain: "subdomain1", packages: ["package1", "package2"] }
+end
+
+def account_employments_response
+  {
+    employments: [
+      { employment: employment_attributes.merge(id: 1) },
+      { employment: employment_attributes.merge(id: 2, user_id: 2,) }
+    ]
+  }.to_json
 end
 
 def user_response
