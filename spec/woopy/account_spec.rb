@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-  describe Woopy::Account do
+describe Woopy::Account do
 
   before do
     @token = 'foo'
@@ -68,6 +68,7 @@ require 'spec_helper'
       subject { @account.find_employment(@user) }
 
       it { should be_kind_of Woopy::Employment }
+      its(:user_id) { should == @user.id }
     end
   end
 end
