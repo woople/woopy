@@ -13,7 +13,11 @@ RSpec.configure do |config|
 end
 
 def request_headers(token)
-  {"Content-Type" => "application/json", "X-WoopleToken" => token }
+  {"Content-Type" => "application/json", "X-WoopleToken" => token}
+end
+
+def accept_request_headers(token)
+  {"Accept" => "application/json", "X-WoopleToken" => token}
 end
 
 def account_response
@@ -22,6 +26,23 @@ end
 
 def account_attributes
   { name: "Account", subdomain: "subdomain1", packages: ["package1", "package2"] }
+end
+
+def user_account_employment_response
+  {
+    employments: [
+      { employment: employment_attributes.merge(id: 1) }
+    ]
+  }.to_json
+end
+
+def account_employments_response
+  {
+    employments: [
+      { employment: employment_attributes.merge(id: 1) },
+      { employment: employment_attributes.merge(id: 2, user_id: 2,) }
+    ]
+  }.to_json
 end
 
 def user_response
