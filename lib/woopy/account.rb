@@ -14,7 +14,7 @@ module Woopy
 
     def find_employment(user)
       UserEmployment.new
-      UserEmployment.find(1, params: { account_id: self.id })
+      UserEmployment.find(user.id, params: { account_id: self.id })
     end
   end
 end
