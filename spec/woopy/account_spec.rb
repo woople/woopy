@@ -10,8 +10,7 @@ describe Woopy::Account do
       mock.post( '/services/v1/users.json', request_headers(@token), user_response )
       mock.post( '/services/v1/ownerships.json', request_headers(@token), ownership_response )
 
-      mock.get(    '/services/v1/accounts/1/employments.json', accept_request_headers(@token), account_employments_response )
-      mock.get(    '/services/v1/accounts/1/employments.json?user_id=1', accept_request_headers(@token), user_account_employment_response )
+      mock.get(    '/services/v1/accounts/1/users/1/employment.json', accept_request_headers(@token), employment_response )
       mock.post(   '/services/v1/accounts/1/employments.json', request_headers(@token), employment_response )
       mock.delete( '/services/v1/accounts/1/employments/1.json', accept_request_headers(@token), employment_response )
     end
@@ -58,16 +57,11 @@ describe Woopy::Account do
       it { should be_persisted }
     end
 
-    describe "#employments" do
-      subject { @account.employments }
-
-      its(:count) { should == 2 }
-    end
-
     describe "#find_employment" do
       subject { @account.find_employment(@user) }
 
       it { should be_kind_of Woopy::Employment }
+      it { should be_persisted }
       its(:user_id) { should == @user.id }
     end
   end
