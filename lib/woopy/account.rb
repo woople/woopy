@@ -13,8 +13,9 @@ module Woopy
     end
 
     def find_employment(user)
-      UserEmployment.new
-      UserEmployment.find(user.id, params: { account_id: self.id })
+      employment_json = Account.get("#{self.id}/users/#{user.id}/employment")
+
+      Employment.new(employment_json, true)
     end
   end
 end

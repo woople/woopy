@@ -9,7 +9,6 @@ require 'woopy/resource'
 require 'woopy/user'
 require 'woopy/account'
 require 'woopy/employment'
-require 'woopy/user_employment'
 require 'woopy/ownership'
 
 def Woopy(options = {})
