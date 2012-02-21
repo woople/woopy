@@ -13,7 +13,8 @@ module Woopy
     end
 
     def find_employment(user)
-      Employment.find(:first, params: { account_id: self.id, user_id: user.id})
+      UserEmployment.new
+      UserEmployment.find(1, params: { account_id: self.id })
     end
   end
 end
