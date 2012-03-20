@@ -18,8 +18,9 @@ module Woopy
       Employment.new(employment_json, true)
     end
 
-    def grant_role(user, role)
-      Role.create(account_id: self.id, user_id: user.id, role: role)
+    def grant_role(user, roles)
+      false unless roles.class == Array
+      Account.put("#{self.id}/users/#{user.id}", { roles: roles })
     end
   end
 end
