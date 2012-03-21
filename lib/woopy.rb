@@ -8,6 +8,7 @@ require 'woopy/client'
 require 'woopy/resource'
 require 'woopy/user'
 require 'woopy/account'
+require 'woopy/role'
 require 'woopy/employment'
 require 'woopy/ownership'
 

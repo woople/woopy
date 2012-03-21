@@ -44,6 +44,10 @@ def employment_attributes
   { account_id: 1, user_id: 1 }
 end
 
+def roles_attributes
+  {roles: ["role1", "role2"] }
+end
+
 def ownership_response
   { ownership: ownership_attributes.merge(id: 1) }.to_json
 end
