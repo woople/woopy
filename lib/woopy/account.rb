@@ -20,7 +20,7 @@ module Woopy
 
     def grant_role(user, roles)
       false unless roles.class == Array
-      Account.put("#{self.id}/users/#{user.id}", { roles: roles })
+      Account.put("#{self.id}/users/#{user.id}/update_roles", { roles: roles })
     end
   end
 end

@@ -14,7 +14,7 @@ describe Woopy::Account do
       mock.post(   '/services/v1/accounts/1/employments.json', request_headers(@token), employment_response )
       mock.delete( '/services/v1/accounts/1/employments/1.json', accept_request_headers(@token), employment_response )
 
-      mock.put(   "/services/v1/accounts/1/users/1.json?#{ roles_attributes.to_query }", request_headers(@token), :ok )
+      mock.put(   "/services/v1/accounts/1/users/1/update_roles.json?#{ roles_attributes.to_query }", request_headers(@token), :ok )
     end
   end
 
