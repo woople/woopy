@@ -36,6 +36,10 @@ def user_attributes
   { name: "User Name", email: "user@example.com" }
 end
 
+def employment_collection_response
+  { employments: [employment_attributes.merge(id: 1)] }.to_json
+end
+
 def employment_response
   { employment: employment_attributes.merge(id: 1) }.to_json
 end
