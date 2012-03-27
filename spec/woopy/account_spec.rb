@@ -11,6 +11,7 @@ describe Woopy::Account do
       mock.post(   '/services/v1/ownerships.json', request_headers(@token), ownership_response )
 
       mock.get(    '/services/v1/accounts/1/users/1/employment.json', accept_request_headers(@token), employment_response )
+      mock.get(    '/services/v1/accounts/1/employments.json', accept_request_headers(@token), employment_collection_response )
       mock.post(   '/services/v1/accounts/1/employments.json', request_headers(@token), employment_response )
       mock.delete( '/services/v1/accounts/1/employments/1.json', accept_request_headers(@token), employment_response )
 
@@ -73,5 +74,26 @@ describe Woopy::Account do
       it { should be_true }
     end
 
+  end
+
+  context "#employments" do
+    context "users on account" do
+      before do
+        @account = Woopy::Account.create(account_attributes)
+        @employments = add_users_to_account(@account)
+      end
+
+      subject { @account.employments }
+
+      it { should == @employments }
+    end
+  end
+
+  def add_users_to_account(account)
+    employments = []
+    user = Woopy::User.create(user_attributes)
+    employment = account.employ(user)
+    employments << employment
+    employments
   end
 end

@@ -12,6 +12,10 @@ module Woopy
       Ownership.create(account_id: self.id, user_id: user.id, role: role)
     end
 
+    def employments
+      Employment.find(:all, params: {account_id: self.id} )
+    end
+
     def find_employment(user)
       employment_json = Account.get("#{self.id}/users/#{user.id}/employment")
 
