@@ -19,6 +19,12 @@ module Woopy
       end
     end
 
+    def find_user(user_id)
+      user_json = Account.get("#{self.id}/users/#{user_id}")
+
+      User.new(user_json, true)
+    end
+
     def find_employment(user)
       employment_json = Account.get("#{self.id}/users/#{user.id}/employment")
 
