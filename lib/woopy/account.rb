@@ -15,7 +15,7 @@ module Woopy
     def employments
       employments_json = Account.get("#{self.id}/employments")
       employments = employments_json.inject([]) do |memo, employment_json|
-        memo << Employment.new(employment_json,true)
+        memo << create_employment(employment_json)
       end
     end
 
@@ -28,12 +28,18 @@ module Woopy
     def find_employment(user)
       employment_json = Account.get("#{self.id}/users/#{user.id}/employment")
 
-      Employment.new(employment_json, true)
+      create_employment(employment_json)
     end
 
     def grant_role(user, roles)
       false unless roles.class == Array
       Account.put("#{self.id}/users/#{user.id}/update_roles", { roles: roles })
+    end
+
+    private
+
+    def create_employment(json)
+      Employment.new(json, true)
     end
   end
 end
