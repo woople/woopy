@@ -94,6 +94,5 @@ describe Woopy::Account do
     user = Woopy::User.create(user_attributes)
     employment = account.employ(user)
     employments << employment
-    employments
   end
 end
