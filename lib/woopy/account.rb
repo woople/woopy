@@ -13,7 +13,10 @@ module Woopy
     end
 
     def employments
-      Employment.find(:all, params: {account_id: self.id} )
+      employments_json = Account.get("#{self.id}/employments")
+      employments = employments_json.inject([]) do |memo, employment_json|
+        memo << Employment.new(employment_json,true)
+      end
     end
 
     def find_employment(user)
