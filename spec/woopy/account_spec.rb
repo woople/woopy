@@ -10,6 +10,8 @@ describe Woopy::Account do
       mock.post(   '/services/v1/users.json', request_headers(@token), user_response )
       mock.post(   '/services/v1/ownerships.json', request_headers(@token), ownership_response )
 
+      mock.put(    "/services/v1/accounts/restore.json?subdomain=foo", request_headers(@token), :ok )
+
       mock.get(    '/services/v1/accounts/1/users/1/employment.json', accept_request_headers(@token), employment_response )
       mock.get(    '/services/v1/accounts/1/employments.json', accept_request_headers(@token), employment_collection_response )
       mock.post(   '/services/v1/accounts/1/employments.json', request_headers(@token), employment_response )
@@ -27,6 +29,14 @@ describe Woopy::Account do
       it 'saves correctly' do
         @account.save.should be_true
       end
+    end
+  end
+
+  describe "#restore!" do
+    describe "archived account" do
+      subject { Woopy::Account.restore!('foo') }
+
+      it { should be_true }
     end
   end
 

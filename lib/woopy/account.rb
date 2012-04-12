@@ -1,5 +1,12 @@
 module Woopy
   class Account < Resource
+
+    # class methods
+    def self.restore!(subdomain)
+      Account.put("restore", { subdomain: subdomain })
+    end
+
+    # instance methods
     def employ(user, role = nil)
       Employment.create(account_id: self.id, user_id: user.id, role: role)
     end
