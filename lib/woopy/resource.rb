@@ -1,8 +1,6 @@
 module Woopy
   class Resource < ActiveResource::Base
 
-    # Resource.site = DEFAULT_SITE_BASE
-
     class << self
       # If headers are not defined in a given subclass, then obtain headers from the superclass.
       # Taken from the Harvest gem: github.com/aiaio/harvest
