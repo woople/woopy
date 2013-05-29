@@ -5,8 +5,8 @@ require "woopy/version"
 Gem::Specification.new do |s|
   s.name        = "woopy"
   s.version     = Woopy::VERSION
-  s.authors     = ["Big Bang Technology"]
-  s.email       = ["developers@bigbangtechnology.com"]
+  s.authors     = ["Woople Labs"]
+  s.email       = ["developers@woople.com"]
   s.homepage    = "http://woople.com/"
   s.summary     = %q{Woople API Wrapper}
   s.description = %q{Wraps the Woople API as ActiveResources}

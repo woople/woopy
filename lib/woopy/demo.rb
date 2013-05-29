@@ -1,4 +1,4 @@
 module Woopy
-  class Demo
+  class Demo < Resource
   end
 end
